@@ -1,0 +1,3 @@
+CandyAvailable = ["Snickers", "Milky Way", "Twizzlers", "Sour Patch", "Reese's", "Twix", "Gummy Bears"]
+print (CandyAvailable)
+
