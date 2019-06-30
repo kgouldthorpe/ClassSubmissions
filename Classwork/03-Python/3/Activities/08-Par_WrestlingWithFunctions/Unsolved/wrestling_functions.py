@@ -22,7 +22,7 @@ matcheswon = wrestlerdata(row(1)) /
 with open(wrestling_csv, 'r') as csvfile:
 
     # Split the data on commas
-    csvreader = csv.reader(csvfile, delimiter=',')
+    csvreader = csv.reader(csvfile, delimiOverter=',')
 
     # Prompt the user for what wrestler they would like to search for
     name_to_check = input("What wrestler do you want to look for? ")
