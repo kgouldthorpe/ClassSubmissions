@@ -1353,7 +1353,9 @@
   {
    "cell_type": "code",
    "execution_count": 24,
-   "metadata": {},
+   "metadata": {
+    "scrolled": true
+   },
    "outputs": [
     {
      "ename": "ValueError",
@@ -1380,9 +1382,29 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 25,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Age Range\n",
+       "<10       23\n",
+       "10-14     28\n",
+       "15-19    136\n",
+       "20-24    365\n",
+       "25-29    101\n",
+       "30-34     73\n",
+       "35-39     41\n",
+       "40+       13\n",
+       "Name: Purchase ID, dtype: int64"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": []
   },
   {
@@ -1518,7 +1540,16 @@
      "output_type": "execute_result"
     }
    ],
-   "source": []
+   "source": [
+    "bins = [0, 10, 15, 20, 25, 30, 35, 40, 150]\n",
+    "bin_names = [\"<10\", \"10-14\", \"15-19\", \"20-24\", \"25-29\", \"30-34\", \"35-39\", \"40+\"]\n",
+    "purchase_data[\"Age Range\"] = pd.cut(purchase_data[\"Age\"], bins, right = False, labels=bin_names)\n",
+    "purchase_data\n",
+    "age_summary_2 = purchase_data.groupby(\"Age Range\")\n",
+    "age_count_2 = age_summary_2[\"Purchase ID\"].count()\n",
+    "age_count_2_df = pd.DataFrame(age_summary_2[\"Purchase ID\"].count())\n",
+    "age_count_2_df\n"
+   ]
   },
   {
    "cell_type": "markdown",
