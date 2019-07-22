@@ -1,5 +1,5 @@
 # Enter your API keys
 
-api_key = "YOUR KEY HERE!"
+api_key = 
 
-gkey = "YOUR KEY HERE!"
+gkey = 
