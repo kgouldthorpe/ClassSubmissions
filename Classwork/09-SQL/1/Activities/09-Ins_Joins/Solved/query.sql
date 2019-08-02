@@ -1,5 +1,6 @@
 -- Drop table if exists
-DROP TABLE players;
+DROP TABLE if exists players;
+drop table if exists matches;
 
 -- Create the players table
 CREATE TABLE players (
