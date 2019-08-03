@@ -28,5 +28,10 @@ where reservepersonnel = 0;
 select * from firepower;
 
 update firepower
-where fighteraircraft = 0
-add 1;
+set FighterAircraft = 1
+where FighterAircraft = 0;
+
+update firepower
+set TotalAircraftStrength = TotalAircraftStrength + 1
+where FighterAircraft = 1;
+
