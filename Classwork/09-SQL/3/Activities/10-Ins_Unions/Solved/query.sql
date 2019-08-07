@@ -17,7 +17,9 @@ UNION
 
 SELECT customer_id AS id, first_name
 FROM customer
-WHERE customer_id between 6 and 10;
+WHERE customer_id between 6 and 10
+
+order by id;
 
 -- Two separte queries for toys and games
 SELECT toy_id AS id, type
@@ -33,7 +35,9 @@ FROM toys
 UNION
 
 SELECT game_id AS id, type
-FROM games;
+FROM games
+
+order by id;
 
 -- Include duplicate rows
 SELECT toy_id AS id, type
@@ -42,4 +46,6 @@ FROM toys
 UNION ALL
 
 SELECT game_id AS id, type
-FROM games;
+FROM games
+
+order by id;
