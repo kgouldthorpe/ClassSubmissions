@@ -1,13 +1,13 @@
 h1 {
-  color: blue;
+  color: rgb(99, 9, 72);
 }
 
 .purple {
-  color: purple;
+  color: rgb(103, 209, 99);
 }
 
 #red {
-  color: red;
+  color: rgba(255, 193, 23, 0.658);
 }
 
 #big-font {
