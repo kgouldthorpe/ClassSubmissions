@@ -13,9 +13,11 @@
   <div class="container text-center">
     <h1 class="jumbotron">Inventory</h1>
     <div>
-
-        <!-- @TODO: write a for loop that lists out your data and accesses the values using dot notation. -->
-
+      <ul style="list-style: none;">
+        {% for inventory in inventories %}
+          <li>{{ inventory.type }}: Costs: {{ inventory.cost }} and I have {{ inventory.stock }}</li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </body>

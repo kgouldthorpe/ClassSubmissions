@@ -3,19 +3,51 @@ import pymongo
 
 app = Flask(__name__)
 
-# @TODO: setup mongo connection
+# setup mongo connection
+conn = 'mongodb://localhost:27017'
+client = pymongo.MongoClient(conn)
 
-
-# @TODO: connect to mongo db and collection
-
+# connect to mongo db and collection
+db = client.store_inventory
+db.store_inventory.drop()
+db.store_inventory.insert_many(
+    [
+        {
+        "type": "apples",
+        "cost": .23,
+        "stock": 333
+        },
+        {
+        "type": "oranges",
+        "cost": .45,
+        "stock": 259
+        },
+        {
+        "type": "pears",
+        "cost": .78,
+        "stock": 156
+        },
+        {
+        "type": "carrots",
+        "cost": .05,
+        "stock": 1000
+        },
+        {
+        "type": "bananas",
+        "cost": .24,
+        "stock": 340
+        }
+    ]
+)    
 
 @app.route('/')
 def index():
-    # @TODO: write a statement that finds all the items in the db and sets it to a variable
-    # CODE GOES HERE
+    # Store the entire team collection in a list
+    inventories = list(db.store_inventory.find())
+    print(inventories)
 
-    # @TODO: render an index.html template and pass it the data you retrieved from the database
-    return
+    # render an index.html template and pass it the data you retrieved from the database
+    return render_template('index.html', inventories = inventories)
 
 
 if __name__ == "__main__":
