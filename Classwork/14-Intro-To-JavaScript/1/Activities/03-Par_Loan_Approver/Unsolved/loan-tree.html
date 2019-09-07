@@ -14,7 +14,7 @@
 
   <script>
     // @NOTE: change these to test the code with different values
-    var income = 25000;
+    var income = 75000;
     var debtIncomeRatio = .5;
     var yearsInJob = 3;
     var criminalRecord = true;
@@ -22,26 +22,26 @@
     // @TODO: Write the Conditional Statements needed to approve or deny a loan
     if (income<30000){
       if (debtIncomeRatio <.5){
-        console.log(`No Loan.`);
+        console.log("No Loan.");
       }
       else if (debtIncomeRatio >-.5){
-        console.log(`Loan.`);
+        console.log("Loan.");
       }
     }
-    if (income >30000 && income < 75000){
+    if (income >=30000 && income < 75000){
       if (yearsInJob <1){
-        console.log(`No Loan.`);
+        console.log("No Loan.");
       }
       else if (yearsInJob >1){
-        console.log(`Loan.`);
+        console.log("Loan.");
       }
     }
-    if (income>75000){
+    if (income>=75000){
       if (criminalRecord = true){
-        console.log(`No Loan.`);
+        console.log("No Loan.");
       }
       else if (criminalRecord = false){
-        console.log(`Loan.`);
+        console.log("Loan.");
       }
     }
 

@@ -21,3 +21,20 @@ var sum = 0;
 var goodMovieScores = [];
 var okMovieScores = [];
 var badMovieScores = [];
+
+//for statement to go throught the list
+for (var m=0; m=movieScore.length,m++){
+  var score = (sum + m);
+  //if statement for over 7
+  if(score>=7){
+    goodMovieScores.push(score);
+  }
+  //if statement between 5 and 7
+  if (score >=5, && score <7){
+    okMovieScores.push(score);
+  } 
+  //if statement less than 5
+  if (score <5){
+    badMovieScores.push(score);
+  }
+}
