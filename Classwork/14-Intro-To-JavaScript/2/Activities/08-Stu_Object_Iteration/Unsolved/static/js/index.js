@@ -14,3 +14,12 @@ var recipes = [
 console.log(recipes);
 
 // @TODO: YOUR CODE HERE
+var dishes = [];
+var spices = [];
+
+var dishes = recipes.map(recipe=>recipe.dish);
+var spices = recipes.map(recipe=>recipe.spice);
+
+//console.log(dishes);
+//console.log(spices);
+

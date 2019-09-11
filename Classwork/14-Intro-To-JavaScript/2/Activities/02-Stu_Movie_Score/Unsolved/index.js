@@ -14,6 +14,9 @@ var movieScores = [
   6.9
 ];
 
+//create function
+function movieResults(name){
+
 // Starting a rating count
 var sum = 0;
 
@@ -23,9 +26,8 @@ var okMovieScores = [];
 var badMovieScores = [];
 
 // Loop through movie scores
-for (var i = 0; i < movieScores.length; i++) {
-  // Create variable to hold rating score
-  var score = movieScores[i];
+movieScores.forEach(function(score){
+
   // Add each score to the rating count
   sum += score;
 
@@ -41,7 +43,7 @@ for (var i = 0; i < movieScores.length; i++) {
   else {
     badMovieScores.push(score);
   }
-}
+});
 
 // Find the average score
 var avg = sum / movieScores.length;
@@ -51,7 +53,7 @@ var numGoodMovies = goodMovieScores.length;
 var numOkMovies = okMovieScores.length;
 var numBadMovies = badMovieScores.length;
 
-// Print results
+//print results
 console.log("---------");
 console.log(`There are ${numGoodMovies} good movies.`);
 console.log(`There are ${numOkMovies} ok movies.`);
