@@ -5,7 +5,7 @@ var newGrade = ["Wash", 79];
 var table = d3.select("table");
 
 // Use d3 to create a bootstrap striped table
-// http://getbootstrap.com/docs/3.3/css/#tables-striped
+//http://getbootstrap.com/docs/3.3/css/#tables-striped
 table.attr("class", "table table-striped");
 
 // Use D3 to select the table body
