@@ -11,6 +11,18 @@
   return firstNum - secondNum;
 });
 
-// Arrow Function
-[3, 2, -120].sort((first, second) => first - second);
+// Arrow Function (default small to large)
+[3, 2, -120].sort();
 
+// Arrow Function (large to small)
+[3, 2, -120].sort((first, second) => second-first);
+// or try with .reverse()
+[3, 2, -120].sort().reverse();
+
+// Arrow Function with text (default a to z)
+["Jim", "Bob", "Angela"].sort();
+
+// Arrow Function with text (z to a)
+["Jim", "Bob", "Angela"].sort((first,second) => second-first);
+//or try with .reverse()
+["Jim", "Bob", "Angela"].sort().reverse();

@@ -9,9 +9,21 @@ var eyeFlicker = [26.8, 27.9, 23.7, 25, 26.3, 24.8,
 // @TODO: Complete the Following Steps
 
 // Create the Trace
-
+var trace1 = {
+  x: eyeColor,
+  y: eyeFlicker,
+  type: "bar"
+};
 // Create the data array for our plot
+var data = [trace1];
 
 // Define our plot layout
+ var layout = {
+   title: "Eye Color vs Eye Flicker",
+   xaxis: { title: "Eye Color"},
+   yaxis: { title: "Frequency of Eye Flicker"}
+ };
 
 // Plot the chart to a div tag with id "bar-plot"
+ Plotly.newPlot("bar-plot", data, layout);
+
