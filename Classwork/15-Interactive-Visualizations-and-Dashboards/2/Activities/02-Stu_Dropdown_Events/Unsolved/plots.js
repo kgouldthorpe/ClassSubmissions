@@ -14,15 +14,25 @@ function init() {
 }
 
 function updatePlotly(newdata) {
-  // YOUR CODE HERE
-  // Use `Plotly.restyle` to update the pie chart with the newdata array
+  var PIE = document.getElementById("pie");
+  Plotly.restyle(PIE, "values", [newdata]);
 }
 
 function getData(dataset) {
-  // YOUR CODE HERE
-  // create a select statement to select different data arrays (YOUR CHOICE)
-  // whenever the dataset parameter changes. This function will get called
-  // from the dropdown event handler.
+  var data = [];
+  switch (dataset) {
+  case "dataset1":
+    data = [9, 10, 19, 88];
+    break;
+  case "dataset2":
+    data = [5, 21, 19, 90];
+    break;
+  case "dataset3":
+    data = [1, 14, 19, 94];
+    break;
+  default:
+    data = [0, 0, 0, 0];
+  }
   updatePlotly(data);
 }
 

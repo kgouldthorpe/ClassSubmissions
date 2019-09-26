@@ -1,4 +1,4 @@
-var apiKey = "YOUR KEY HERE";
+var apiKey = "yPwgZWUYrV38HX4TMTba";
 
 /* global Plotly */
 var url =
