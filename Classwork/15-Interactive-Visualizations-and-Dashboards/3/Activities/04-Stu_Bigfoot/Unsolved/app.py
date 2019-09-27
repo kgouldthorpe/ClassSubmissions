@@ -51,8 +51,8 @@ def data():
     sel = [func.strftime("%Y", Bigfoot.timestamp), func.count(Bigfoot.timestamp)]
     results = db.session.query(*sel).\
         group_by(func.strftime("%Y", Bigfoot.timestamp)).all()
-    # @TODO: YOUR CODE HERE
-    return
+    df = pd.DataFrame(results, columns=["year", "sightings"])
+    return jsonify(df.to_dict(orient="records"))
 
 
 if __name__ == "__main__":

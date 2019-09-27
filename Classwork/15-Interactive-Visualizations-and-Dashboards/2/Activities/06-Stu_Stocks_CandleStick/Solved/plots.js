@@ -33,7 +33,7 @@ function handleSubmit() {
 }
 
 function buildPlot(stock) {
-  var apiKey = "YOUR KEY HERE";
+  var apiKey = "yPwgZWUYrV38HX4TMTba";
 
   var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=2016-10-01&end_date=2017-10-01&api_key=${apiKey}`;
 
