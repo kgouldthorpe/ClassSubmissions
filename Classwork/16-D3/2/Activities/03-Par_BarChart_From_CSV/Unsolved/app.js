@@ -43,8 +43,22 @@ d3.csv("hours-of-tv-watched.csv").then(function(tvData) {
  // Create a 'barWidth' variable so that the bar chart spans the entire chartWidth.
   var barWidth = (chartWidth - (barSpacing * (tvData.length - 1))) / tvData.length;
 
-   // @TODO
-  // Create code to build the bar chart using the tvData.
+// Create code to build the bar chart using the tvData.
+svgGroup.selectAll("rect")
+  .data(tvdata)
+  .enter()
+  .append("rect")
+  .attr("width", 50)
+  .attr("height", function(data) {
+    return data * 10;
+  })
+  .attr("x", function(data, index) {
+    return index * 60;
+  })
+  .attr("y", function(data) {
+    return 600 - data * 10;
+  })
+  .attr("class", "bar");
 
 }).catch(function(error) {
   console.log(error);

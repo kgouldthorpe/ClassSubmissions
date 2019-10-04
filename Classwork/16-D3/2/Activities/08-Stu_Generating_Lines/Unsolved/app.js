@@ -19,17 +19,27 @@ d3.csv("NCHS_life_expectancy_at_birth.csv").then(function(lifeData) {
   });
 
   // Create a scale for your independent (x) coordinates
-
+  var xScale = d3.scaleLinear()
+    .domain([0, lifeData, d => d.year])
+    .range([0, svgWidth]);
 
   // Create a scale for your dependent (y) coordinates
-
+  var yScale = d3.scaleLinear()
+    .domain([0, lifeData, d => d.lifeExpectancy])
+    .range([svgHeight, 0]);
 
   // create a line generator function and store as a variable
   // use the scale functions for x and y data
-
+  var lineGraph = d3.line()
+    .x(data => xScale(data.year))
+    .y(data => yScale(data.lifeExpectancy));
 
   // Append a path element to the svg, make sure to set the stroke, stroke-width, and fill attributes.
-
+  svg.append("path")
+    .attr("stroke", "blue")
+    .attr("stroke-width", "1")
+    .attr("fill", "none")
+    .attr("d", lineGraph(lifeData));
 
 }).catch(function(error) {
   console.log(error);
