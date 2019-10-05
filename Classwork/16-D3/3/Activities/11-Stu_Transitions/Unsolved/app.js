@@ -57,8 +57,19 @@ var circlesGroup = chartGroup.selectAll("circle")
   .attr("cx", (d, i) => xScale(i))
   .attr("cy", d => yScale(d))
   .attr("r", "10")
-  .attr("fill", "red");
+  .attr("fill", "blue");
 
 // YOUR CODE HERE
-
+circlesGroup.on("mouseover", function() {
+  d3.select(this)
+            .transition()
+            .duration(500)
+            .attr("fill", "purple");
+})
+    .on("mouseout", function() {
+      d3.select(this)
+            .transition()
+            .duration(500)
+            .attr("fill", "blue");
+    });
 

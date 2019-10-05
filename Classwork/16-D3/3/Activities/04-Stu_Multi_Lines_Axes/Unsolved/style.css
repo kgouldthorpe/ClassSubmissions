@@ -3,8 +3,8 @@
   stroke-width: 2px;
 }
 
-.green {
-  stroke: green;
+.purple {
+  stroke: purple;
 }
 
 .blue {
@@ -22,6 +22,6 @@
 
 .dow-text {
   font-size: 16px;
-  fill: green;
+  fill: purple;
   text-anchor: middle;
 }

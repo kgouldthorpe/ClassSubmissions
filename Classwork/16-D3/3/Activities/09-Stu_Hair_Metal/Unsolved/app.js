@@ -25,28 +25,68 @@ d3.csv("hairData.csv").then(function(hairData) {
 
     // Step 1: Parse Data/Cast as numbers
     // ==============================
-
+  hairData.forEach(function(data){
+    data.hair_length = +data.hair_length;
+    data.num_hits = +data.num_hits;
+  });
     // Step 2: Create scale functions
     // ==============================
+  xScale = d3.scaleLinear()
+    .domain([0,d3.max(hairData, d=>d.hair_length)])
+    .range([0, width]);
+
+  yScale = d3.scaleLinear()
+    .domain([0, d3.max(hairData, d=>d.num_hits)])
+    .range([height, 0]);
 
     // Step 3: Create axis functions
     // ==============================
-
+  var xAxis = d3.axisBottom(xScale);
+  var yAxis = d3.axisLeft(yScale);
+  
     // Step 4: Append Axes to the chart
     // ==============================
+  chartGroup.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(xAxis);
 
+  chartGroup.append("g")
+    .call(yAxis);
+    
     // Step 5: Create Circles
     // ==============================
+  var circlesGroup = chartGroup.selectAll("circle")
+    .data(hairData)
+    .enter()
+    .append("circle")
+    .attr("cx", d => xScale(d.hair_length))
+    .attr("cy", d => yScale(d.num_hits))
+    .attr("r", "10")
+    .attr("fill", "purple")
+    .attr("stroke-width", "1")
+    .attr("stroke", "black");
 
     // Step 6: Initialize tool tip
     // ==============================
-
+  var toolTip = d3.tip()
+    .attr("class", "tooltip")
+    .offset([80, -60])
+    .html(function(d) {
+      return (`<strong>${d.rockband}<strong><hr>Hair Length: ${d.hair_length}<hr>Number of Hits: ${d.num_hits}`);
+        });
     // Step 7: Create tooltip in the chart
     // ==============================
+  chartGroup.call(toolTip);
 
     // Step 8: Create event listeners to display and hide the tooltip
     // ==============================
-
+  circlesGroup.on("mouseover", function(d) {
+    toolTip.show(d, this);
+  })
+    .on("mouseout", function(data, index) {
+      toolTip.hide(data);
+    });
+    
     // Create axes labels
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")

@@ -98,13 +98,21 @@ function makeResponsive() {
     var dateFormatter = d3.timeFormat("%d-%b");
 
     // Step 1: Append tooltip div
-
+    var toolTip = d3.select("body").append("div")
+    .attr("class", "tooltip");
 
     // Step 2: Create "mouseover" event listener to display tooltip
-
+    circlesGroup.on("mouseover", function(d) {
+      toolTip.style("display", "block");
+      toolTip.html(`Medals Received: <strong>${d.medals}</strong><hr> on ${dateFormatter(d.date)}<hr>`)
+        .style("left", d3.event.pageX + "px")
+        .style("top", d3.event.pageY + "px");
+    })
 
     // Step 3: Create "mouseout" event listener to hide tooltip
-
+    .on("mouseout", function() {
+      toolTip.style("display", "none");
+    });
 
   }).catch(function(error) {
     console.log(error);
