@@ -14,22 +14,30 @@ library(tidyverse)
 
 #### Read and preview CSV
 ```{r}
+setwd("C:\\Users\\kenda\\OneDrive\\Documents\\GitHub\\ClassSubmissions\\Classwork\\18-R\\2\\Activities\\01-Stu_UFO\\Unsolved")
+```
 
+
+```{r}
+ufos<-read_csv("ufo.csv")
+head(ufos)
 ```
 
 #### The total number of UFO sightings
 ```{r}
-
+ufo_sightings<-nrow(ufos)
 ```
 
 #### The number of, and a list of, states, provinces, and territories
 ```{r}
-
+locations<-unique(ufos$state)
+location_count<-length(locations)
 ```
 
 #### The average duration of UFO sighting by state
 ```{r}
-
+mean_duration<-mean(ufos$'duration (seconds)')
+mean_dur_loc<-summarize
 ```
 
 #### The number of UFO sightings by state

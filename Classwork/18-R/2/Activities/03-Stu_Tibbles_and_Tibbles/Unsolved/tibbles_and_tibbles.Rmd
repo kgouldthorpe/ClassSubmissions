@@ -13,30 +13,48 @@ library(tidyverse)
 
 #### Create a Tibble by columns
 ```{r}
-
+horse_cart<-
+  tibble(
+    Name = c("Geroge",
+             "Martha",
+             "John",
+             "Abigail"),
+    Age = c(12,
+            11,
+            10,
+            7),
+    Years.Left = 25-Age
+  )
 ```
 
 
 #### Create a Tibble by rows
 ```{r}
-
+brand_research<-
+  tribble(
+    ~Brand, ~Least.Reliable.Model, ~Average.Reliability.Score,
+    "Ford", "Focus", 65,
+    "Dodge", "RAM", 70,
+    "Hyundai", "Sonata",85
+  )
 ```
 
 
 #### Add a row to a Tibble
 ```{r}
-
+brand_research<-add_row(brand_research, Brand="Mazda", Least.Reliable.Model="CX-7", Average.Reliability.Score=78)
 ```
 
 
 #### Add a column to a Tibble
 ```{r}
-
+add_column(horse_cart, Money.Saved=c("Y", "N", "Y","N"))
 ```
 
 
 #### Rearrange the columns of a Tibble
 ```{r}
-
+brand_research_2<-brand_research[,c(2,1,3)]
+head(brand_research_2)
 ```
 

@@ -65,7 +65,8 @@ random_list <- list("movies"=c("Star Wars", "Titanic", "Avatar"),
 random_list["states"]
 
 # Or use the $ sign
-random_list$coins
+random_list$coins[1]
 
 # Verify type
 typeof(random_list)
+names(random_list)

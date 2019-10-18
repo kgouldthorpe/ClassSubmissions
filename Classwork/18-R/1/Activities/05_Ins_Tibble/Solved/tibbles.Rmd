@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Load dependency and sample data set
 ```{r}
 library(tidyverse)
-data(diamonds, package='ggplot2')
+data(students, package='ggplot2')
 ```
 
 ### Select rows 1 through 7

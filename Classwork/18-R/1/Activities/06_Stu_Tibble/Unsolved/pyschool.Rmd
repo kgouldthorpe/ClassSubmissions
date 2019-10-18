@@ -1,0 +1,22 @@
+---
+title: "pyschool"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+setwd("C:\\Users\\kenda\\OneDrive\\Documents\\GitHub\\ClassSubmissions\\Classwork\\18-R\\1\\Activities\\06_Stu_Tibble\\Unsolved")
+
+```
+
+```{r}
+students<-read_csv(file='students.csv')
+```
+```{r}
+head(students)
+```
+

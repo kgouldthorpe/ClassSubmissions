@@ -65,6 +65,8 @@ passing_math_count <- nrow(passing_math)
 percentage_passing_math <- passing_math_count*100 / student_count
 percentage_passing_math <- round(percentage_passing_math, 2)
 
+
+
 paste(percentage_passing_math, "% of the students have passing math scores.")
 ```
 ### Calculate the overall passing rate, i.e. the average of math and reading passing percentages

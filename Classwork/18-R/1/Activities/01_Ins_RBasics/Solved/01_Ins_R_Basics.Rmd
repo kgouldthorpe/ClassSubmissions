@@ -98,4 +98,3 @@ random_list$coins
 # Verify type
 typeof(random_list)
 ```
-
