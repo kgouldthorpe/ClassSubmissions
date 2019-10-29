@@ -29,27 +29,32 @@ function createMap(earthquakes) {
     }).addTo(map);
 }
 
-function createMarkers(response_usgs) {
+function createMarkers() {
      
     // Initialize an array to hold bike markers
     var quakeMarkers = [];
 
-    // Loop through data for each of variable
-    for (var index = 0; index < response_usgs.length; index++) {
-        var epicenters = response_usgs.properties[index];
+    // Perform API Call
+    
+    function apiCall(){
+        var response_usgs = d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson");
+        // Loop through data for each of variable
+        for (var index = 0; index < response_usgs.length; index++) {
+            var epicenters = response_usgs.features[1].properties[index];
 
-        // For each epicenter, create a marker and bind a popup with information on the quake
-        var quakeMarker = L.marker(epicenters.coordinates)
-        .bindPopup("<h3>" + epicenters.title + "<h3><h3>Magnitude: " + epicenters.mag + "<h3>");
+            // For each epicenter, create a marker and bind a popup with information on the quake
+            var quakeMarker = L.marker(epicenters.coordinates)
+            .bindPopup("<h3>" + epicenters.title + "<h3><h3>Magnitude: " + epicenters.mag + "<h3>");
     
-        // Add the marker to the quakeMarkers array
-        quakeMarkers.push(quakeMarker);
-    }
-    
+            // Add the marker to the quakeMarkers array
+            quakeMarkers.push(quakeMarker);
+        }
+    };
+    apiCall();
     // Create a layer group made from the quake markers array, pass it into the createMap function
     createMap(L.layerGroup(quakeMarkers));
 }
 
-// Perform an API call. Call createMarkers when complete
-d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson", createMarkers);
+// Call createMarkers when complete
+createMarkers();
 
