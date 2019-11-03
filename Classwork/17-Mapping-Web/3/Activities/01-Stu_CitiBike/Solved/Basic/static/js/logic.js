@@ -49,6 +49,7 @@ function createMarkers(response) {
 
     // Add the marker to the bikeMarkers array
     bikeMarkers.push(bikeMarker);
+    console.log(bikeMarkers);
   }
 
   // Create a layer group made from the bike markers array, pass it into the createMap function
