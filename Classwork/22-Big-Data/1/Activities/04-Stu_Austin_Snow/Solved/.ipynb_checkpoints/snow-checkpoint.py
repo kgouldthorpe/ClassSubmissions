@@ -1,7 +1,10 @@
+"""
+Which days had snow?
+"""
 from mrjob.job import MRJob
 
 
-class Snow_Days(MRJob):
+class Snow_days(MRJob):
 
     def mapper(self, key, line):
         (station, name, state, date, snow, tmax, tmin) = line.split(",")
@@ -13,4 +16,4 @@ class Snow_Days(MRJob):
 
 
 if __name__ == "__main__":
-    Snow_Days.run()
+    Snow_days.run()
